@@ -1,0 +1,37 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "SD614 Apps Portfolio",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "prettier": "prettier -write .",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sd614apps/my-portfolio.git"
+  },
+  "keywords": [],
+  "author": "sd614.apps@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sd614apps/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/sd614apps/my-portfolio#readme",
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^10.15.0",
+    "next": "^13.4.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-config-next": "^13.4.13",
+    "prettier": "^3.0.1"
+  }
+}
