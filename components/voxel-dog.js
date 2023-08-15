@@ -24,6 +24,16 @@ const VoxelDog = () => {
     const [scene] = useState(new THREE.Scene())
     const [_controls, setControls] = useState()
 
+    const handleWindowResize = useCallback(() => {
+        const { current: container } = refContainer
+        if (container && renderer) {
+            const scW = container.clientWidth
+            const scH = container.clientHeight
+
+            renderer.setSize(scW, scH)
+        }
+    }, [renderer])
+
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
         const { current: container } = refContainer
@@ -68,6 +78,7 @@ const VoxelDog = () => {
                 receiveShadow: false,
                 castShadow: false
             }).then(() => {
+                animate()
                 setLoading(false)
             })
 
@@ -80,7 +91,7 @@ const VoxelDog = () => {
 
                 if (frame <= 100) {
                     const p = initialCameraPosition
-                    const rotSpeed = -easeOutCirc(frame / 120) * Math/PI * 20
+                    const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
 
                     camera.position.y = 10
                     camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
@@ -100,6 +111,13 @@ const VoxelDog = () => {
         }
     }, [])
 
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowResize, false)
+        return() => {
+            window.removeEventListener('resize', handleWindowResize, false)
+        }
+    }, [renderer, handleWindowResize])
+
     return (
         <Box
             ref={refContainer}
@@ -118,10 +136,9 @@ const VoxelDog = () => {
                     left="50%"
                     top="50%"
                     ml="calc(0px - var(--spinner-size) / 2)"
-                    mt="calc(0px - var(--spinner-size)"
+                    mt="calc(0px - var(--spinner-size))"
                 />
             )}
-            Dog!!!
         </Box>
     )
 }
