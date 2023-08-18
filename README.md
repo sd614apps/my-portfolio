@@ -7,5 +7,6 @@ Portfolio website using Next.js, Chakra UI, Framer Motion, and Three.js
 - npm i -D eslint eslint-config-next prettier
 - npm i @chakra-ui/icons
 - npm i three
+- npm i react-icons
 
 - npm run dev
